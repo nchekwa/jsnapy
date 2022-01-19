@@ -1,0 +1,15 @@
+ethernet-switching-table:
+    - command: show ethernet-switching table
+    - iterate:
+        xpath: '//l2ng-mac-entry'
+        id: './l2ng-l2-mac-address'
+        tests:
+            - no-diff: l2ng-l2-mac-logical-interface
+              err: "Test Failed!! {{pre['l2ng-l2-mac-address']}} got changed, before it was on interface <{{pre['l2ng-l2-mac-logical-interface']}}>, and now it is <{{post['l2ng-l2-mac-logical-interface']}}>"
+              info: "Test Passed!! {{pre['l2ng-l2-mac-address']}} is same, before it was on interface <{{pre['l2ng-l2-mac-logical-interface']}}>, and now it is <{{post['l2ng-l2-mac-logical-interface']}}>"
+            - list-not-less: l2ng-l2-mac-address
+              err: "Test Failed!! mac <{{pre['l2ng-l2-mac-address']}}> is missing in post snapshot"
+              info: "Test succeeded!! mac <{{pre['l2ng-l2-mac-address']}}> is still present in post snapshot"
+            - list-not-more: l2ng-l2-mac-address
+              err: "Test Failed!! neighbor <{{post['l2ng-l2-mac-address']}}> has been added in post snapshot"
+              info: "Test succeeded!! neighbor <{{post['l2ng-l2-mac-address']}}> was already present in pre snapshot"

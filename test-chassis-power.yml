@@ -1,0 +1,10 @@
+# Only on MX/EX9k/PTX
+# Not on QF5k
+chassis-power:
+    - command: show chassis power 
+    - iterate:
+        xpath: //power-usage-information
+        tests:
+            - err: 'PEM {{post["power-usage-item/name"]}} is {{post["power-usage-item/state"]}} '
+              info: PEM status changed
+              is-in: power-usage-item/state, Online

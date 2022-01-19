@@ -1,0 +1,9 @@
+test_interface_duplex:
+  - command: show interfaces terse 
+  - iterate:
+      xpath: physical-interface
+      id: './name'
+      tests:
+        - no-diff: duplex 
+          err: "Test Failed!! duplex for {{id_0}} is no longer {{pre['duplex']}}"
+          info: "Test Passed!! duplex for {{id_0}} matches the pre-check" 

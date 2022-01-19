@@ -1,0 +1,50 @@
+hosts:
+    #- device: 10.240.40.30 
+    #  username : root
+    #  passwd: root123
+    - device: 127.0.0.1
+      port: 22
+      username : atos
+      passwd: Poclab123
+#tests:
+#    - test-chassis-alarms.yml
+    #- test-chassis-fabric-summary.yml
+#    - test-chassis-fpc-pic-status.yml
+    #- test-chassis-power.yml
+#    - test-ethernet-switching-table.yml
+#    - test-interfaces-errors.yml
+#    - test-interfaces-oper-status.yml
+#    - test-lacp-interfaces-status.yml
+#    - test-lldp-neighbor.yml
+#    - test-stp-interface-state.yml
+
+
+#tests:
+#    - test-lldp-neighbor.yml
+#    - test-stp-interface-state.yml
+
+
+tests:
+# LLDP
+ - test-lldp-neighbor.yml
+#
+# LACP
+ - test-lacp-interfaces-status.yml
+#
+# port Error
+ - test-interfaces.yml
+#
+# Port negotiation (show interfaces media | match Duplex)?
+ - test-interfaces-duplex.yml
+#
+# STP port state of interfaces (show spanning-tree interface)
+ - test-stp-interface-state.yml
+#
+# MAC table
+ - test-ethernet-switching-table.yml
+#
+# VC - member
+ - test-virtual-chassis.yml
+#
+# vc ports
+# - ?????

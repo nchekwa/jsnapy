@@ -1,0 +1,9 @@
+chassis-hardware-serial-number: 
+    - command: show chassis hardware
+    - iterate:
+        xpath: '//chassis-inventory/chassis'
+        id: './serial-number'
+        tests:
+            - no-diff: serial-number
+              err: "Test Failed!! serial-number changed! was <{{pre['serial-number']}}>, it is now <{{post['serial-number']}}> "
+              info: "Test succeeded!! serial-number is the same. it is <{{pre['serial-number']}}>"

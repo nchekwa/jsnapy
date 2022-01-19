@@ -1,0 +1,12 @@
+chassis-alarms:
+    - command: show chassis alarms
+    - iterate:
+        xpath: alarm-detail
+        id: alarm-description
+        tests:
+            - list-not-less: alarm-short-description
+              ignore-null: True
+              err: "This alarm has disappeared {{pre['alarm-description']}}"
+            - list-not-more: alarm-short-description
+              ignore-null: True
+              err: "A new alarm is present {{post['alarm-description']}}"

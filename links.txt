@@ -1,0 +1,5 @@
+https://github.com/Juniper/jsnapy/blob/master/samples/SRX-Non-Cluster-checks.yml
+
+https://github.com/taijiji/sample_jsnapy
+
+https://github.com/maxdevyatov/jsnapy_examples

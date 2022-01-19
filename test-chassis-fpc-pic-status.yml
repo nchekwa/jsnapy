@@ -1,0 +1,9 @@
+chassis-fpc-pic-status:
+    - command: show chassis fpc pic-status 
+    - iterate:
+        xpath: //fpc-information
+        id: fpc/pic/pic-slot, fpc/slot
+        tests:
+            - err: PIC {{post["fpc/pic/pic-slot"]}} in FPC {{post["fpc/slot"]}} changed status from {{pre["fpc/pic/pic-state"]}} to {{post["fpc/pic/pic-state"]}}
+              info: PIC status check
+              no-diff: fpc/pic/pic-state

@@ -1,0 +1,8 @@
+chassis-fabric-summary:
+    - command: show chassis fabric summary
+    - item:
+        xpath: //fm-state-item
+        tests:
+            - err: State of slot {{post["plane-slot"]} changed from {{pre["state"]} to {{post["state"]}
+              info: checking online FPCs 
+              is-in: state, Online

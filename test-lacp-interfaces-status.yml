@@ -1,0 +1,9 @@
+lacp-interfaces-status:
+    - command: show lacp interfaces
+    - item:
+        xpath: lacp-interface-information
+        id: .//name
+        tests:
+            - err: 'LACP interface status changed '
+              info: Checking LACP status
+              no-diff: //lacp-activity

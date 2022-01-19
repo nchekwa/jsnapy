@@ -1,0 +1,8 @@
+virtual_chassis_status:
+    - command: show virtual-chassis status
+    - iterate:
+        xpath: //member
+        tests:
+            - is-in: member-status, Prsnt
+              err: "Test Failed!! VC members are not all present: <{{post['member-status']}}>"
+              info: "Test Passed!! VC members are all present"
