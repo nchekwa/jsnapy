@@ -4,8 +4,8 @@ hosts:
     #  passwd: root123
     - device: 127.0.0.1
       port: 22
-      username : atos
-      passwd: Poclab123
+      username : root
+      passwd: root123
 #tests:
 #    - test-chassis-alarms.yml
     #- test-chassis-fabric-summary.yml
